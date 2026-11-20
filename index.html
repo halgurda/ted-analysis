@@ -289,11 +289,37 @@ button{font:inherit}
 @media(max-height:680px) and (min-width:701px){.finale{padding-top:58px;padding-bottom:45px}.finale-overline{margin-bottom:10px}.finale-pill{padding:9px 12px}.finale-hero{margin:16px 0}.finale-spark{margin-bottom:8px}.finale .finale-hero h2{font-size:clamp(35px,4.4vw,61px)}.finale .finale-hero p{margin-top:8px}.finale .finale-smile{margin-bottom:10px}.finale-team{padding:9px 15px}}
 @media(prefers-reduced-motion:reduce){.finale-glow,.finale-particles i{animation:none!important}}
 
+
+/* Standby screen only: the six presentation slides are unchanged. */
+.standby{align-items:center;text-align:center;isolation:isolate}
+.standby-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse 45% 45% at 50% 54%,rgba(51,85,180,.23),transparent 75%),radial-gradient(ellipse 35% 45% at 80% 22%,rgba(108,70,175,.19),transparent 75%)}
+.standby-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(133,160,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(133,160,255,.055) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 68% 70% at center,#000,transparent);animation:gridpan 26s linear infinite}
+.standby-code{position:absolute;inset:0;color:#83a6ed;font:12px/2.6 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;opacity:.13;text-align:left;overflow:hidden;white-space:nowrap;user-select:none}
+.standby-code span{position:absolute;display:block;animation:standby-float 18s ease-in-out infinite alternate}.standby-code span:nth-child(1){top:16%;left:8%}.standby-code span:nth-child(2){top:32%;right:5%;animation-delay:-5s}.standby-code span:nth-child(3){bottom:22%;left:6%;animation-delay:-10s}.standby-code span:nth-child(4){bottom:12%;right:9%;animation-delay:-3s}@keyframes standby-float{to{transform:translateY(-20px);opacity:.6}}
+.standby-content{max-width:1100px;width:100%;margin:auto;display:flex;flex-direction:column;align-items:center}.standby-status{font:700 clamp(9px,1vw,12px) ui-monospace,SFMono-Regular,Consolas,monospace;color:#a9c8ff;letter-spacing:.11em;padding:11px 16px;border:1px solid #91b1ff3b;border-radius:99px;background:#192848a3;margin-bottom:clamp(25px,5vh,52px);max-width:100%}.standby-status::after{content:'_';margin-left:4px;animation:standby-caret 1s steps(2,end) infinite}@keyframes standby-caret{50%{opacity:0}}
+.standby h1{font-size:clamp(43px,6.7vw,100px);line-height:1.03;letter-spacing:-.055em;max-width:1080px;text-wrap:balance}.standby h1 span{background:linear-gradient(100deg,#92c3ff,#c9abff);background-clip:text;-webkit-background-clip:text;color:transparent}.standby-button{margin-top:clamp(25px,5vh,50px);padding:16px 24px;display:inline-flex;gap:12px;align-items:center;justify-content:center;border:1px solid #9bb8ff72;border-radius:16px;background:linear-gradient(135deg,#4a6ddb66,#8a5bcc48);color:#fff;font-weight:750;font-size:14px;cursor:pointer;box-shadow:0 14px 40px #0006,0 0 28px #729fff36;backdrop-filter:blur(12px);transition:transform .25s,box-shadow .25s,border-color .25s}.standby-button:hover{transform:translateY(-3px);border-color:#c6d5ff;box-shadow:0 18px 45px #0007,0 0 35px #8ea7ff66}.standby-button .play{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#d1ddff26;font-size:11px}.standby-hint{margin-top:19px;color:#a4b4d0;font-size:11px;letter-spacing:.13em;text-transform:uppercase}.standby-hint kbd{font:inherit;color:#e3ecff;padding:3px 7px;border:1px solid #677b9f70;border-radius:5px}
+.modal-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#050a16;z-index:1}.video-error{display:none;position:absolute;inset:0;z-index:2;align-items:center;justify-content:center;text-align:center;padding:25px;background:#0a1121;color:#d4e2ff;font-size:14px;line-height:1.6;pointer-events:none}.video-error.visible{display:flex}
+@media(max-width:700px){.standby{padding:72px 24px 60px}.standby-content{margin:auto}.standby-code{font-size:9px}.standby h1{font-size:clamp(38px,10vw,62px)}.standby-status{letter-spacing:.04em;font-size:9px}.standby-button{font-size:12px;padding:14px 17px}.standby-hint{margin-top:15px}}
+@media(prefers-reduced-motion:reduce){.standby-code span,.standby-status::after,.standby-grid{animation:none!important}}
+
+
+/* Polished presentation micro-interactions */
+.deck-progress{position:fixed;z-index:60;top:0;left:0;right:0;height:2px;pointer-events:none}.deck-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#71b8ff,#a478ff);box-shadow:0 0 10px #84aaff,0 0 18px #9b7dff;transition:width .65s cubic-bezier(.2,.8,.2,1)}
+.status-dot{display:inline-block;vertical-align:1px;width:7px;height:7px;margin-right:9px;border-radius:50%;background:#80f4b4;box-shadow:0 0 10px #62f2a6;animation:status-pulse 2.6s ease-in-out infinite}@keyframes status-pulse{50%{opacity:.55;box-shadow:0 0 16px #62f2a6}}
+.standby-meta{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;padding:8px 14px;border-radius:99px;border:1px solid #8caafa38;background:#16213b9c;color:#b6c9e7;font-size:11px;font-weight:650;letter-spacing:.03em}
+.standby-button{translate:var(--mag-x,0px) var(--mag-y,0px);transition:translate .18s ease,transform .25s,box-shadow .25s,border-color .25s}.standby.past h1{opacity:1;animation:standby-exit .65s cubic-bezier(.3,0,.7,1) both}@keyframes standby-exit{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(1.065)}}
+.presenter-timer{position:fixed;left:clamp(20px,3vw,34px);bottom:clamp(16px,3vh,26px);z-index:45;display:flex;align-items:center;gap:7px;background:rgba(12,21,39,.65);border:1px solid rgba(129,154,210,.28);border-radius:999px;padding:7px 10px;color:#c4d3ec;font:600 11px ui-monospace,SFMono-Regular,Consolas,monospace;cursor:pointer;backdrop-filter:blur(8px);opacity:.8}.presenter-timer:hover,.presenter-timer:focus-visible{opacity:1}.presenter-timer[hidden]{display:none}.timer-dot{width:5px;height:5px;border-radius:50%;background:#85d6b3;box-shadow:0 0 7px #8bffc0}
+.comparison-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.comparison-pills span{white-space:nowrap;padding:7px 9px;border-radius:9px;background:rgba(111,143,225,.11);border:1px solid rgba(134,160,226,.22);color:#cbd9f4;font-size:clamp(10px,.85vw,12px);font-weight:700}.comparison-pills i{font-style:normal;color:#9ebcff}.comparison-pills strong{color:#dcc8ff;text-shadow:0 0 12px #ba8fff,0 0 22px #a275ff}
+@media(hover:hover){.glass{position:relative}.glass::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:radial-gradient(180px circle at var(--glow-x,50%) var(--glow-y,50%),rgba(161,190,255,.75),transparent 68%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .25s}.glass:hover::before{opacity:.7}}
+@media(max-width:700px){.standby-meta{font-size:10px;margin-top:13px}.comparison-pills{margin-top:8px;gap:5px}.comparison-pills span{font-size:10px;padding:5px 7px}.presenter-timer{bottom:12px;left:18px}}
+@media(prefers-reduced-motion:reduce){.status-dot{animation:none}.standby.past h1{animation:none}.deck-progress-fill,.standby-button{transition:none}}
+
 </style>
 </head>
 <body>
 <main class="deck" id="deck" aria-label="TED Talk speech analysis presentation, version two">
 <div class="ambient" aria-hidden="true"></div>
+<div class="deck-progress" aria-hidden="true"><div class="deck-progress-fill" id="deckProgress"></div></div>
 
 <!-- UKH branding: borderless, ultra-minimal, top-left. Swap src="ukh-logo.png" for any logo file or URL; an embedded fallback loads automatically. -->
 <a class="ukh" href="https://ukh.edu.krd/" target="_blank" rel="noopener noreferrer" aria-label="University of Kurdistan Hewlêr">
@@ -305,13 +331,19 @@ button{font:inherit}
 <!-- Watch Clip: subtle, always available, opens a 15-second snippet -->
 <button class="clip-btn" id="clipBtn" aria-haspopup="dialog" aria-expanded="false">
   <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7-4.5-7-4.5Z"/></svg>
-  Watch Clip <span class="len">0:15</span>
+  Watch Clip <span class="len">1:36</span>
 </button>
 
 <div class="slides">
 
+<!-- ============ SLIDE 0 · STANDBY ============ -->
+<section class="slide standby active" tabindex="-1" aria-label="Slide 0: Pre-presentation" aria-hidden="false">
+  <div class="standby-bg" aria-hidden="true"><div class="standby-grid"></div><div class="standby-code"><span>const curiosity = true;<br>create. learn. share.</span><span>while (learning) {<br>&nbsp;&nbsp;build();<br>}</span><span>// ideas become apps<br>function create() { return possibility; }</span><span>app.club.connect();<br>&gt; ready to begin_</span></div></div>
+  <div class="standby-content"><div class="standby-status cin" style="--d:.1s"><span class="status-dot" aria-hidden="true"></span>&gt; STANDBY // ENG103 PUBLIC SPEAKING · UKH</div><h1 class="cin" style="--d:.25s">What were you doing<br>when you were <span>12 years old?</span></h1><button class="standby-button cin" style="--d:.45s" id="standbyClipBtn" aria-haspopup="dialog" aria-expanded="false"><span class="play" aria-hidden="true">▶</span> Watch Highlight Reel (1:36)</button><div class="standby-meta cin" style="--d:.54s">4 Speakers &nbsp;·&nbsp; 6 Slides &nbsp;·&nbsp; 1:36 Highlight</div><div class="standby-hint cin" style="--d:.6s">Press <kbd>Space</kbd> to begin</div></div>
+</section>
+
 <!-- ============ SLIDE 1 · TITLE ============ -->
-<section class="slide active" aria-label="Slide 1: Title" aria-hidden="false">
+<section class="slide" aria-label="Slide 1: Title" aria-hidden="true">
   <div class="hero-bg" aria-hidden="true"><div class="grid-bg"></div><div class="glow a"></div><div class="glow b"></div><div class="glow c"></div></div>
   <div class="hero-layout">
     <div class="hero-main">
@@ -387,7 +419,7 @@ button{font:inherit}
     <div class="three">
       <div class="glass info-card reveal" data-step="1"><div class="card-top"><span>01 / ROLE</span><span>↗</span></div><div><h3>Expert + Equal</h3><div class="card-line">Experience · Encouragement</div></div></div>
       <div class="glass info-card reveal" data-step="2"><div class="card-top"><span>02 / CREDIBILITY</span><span>✳</span></div><div><h3>Ethos</h3><div class="card-line">Published Apps · App Club</div></div></div>
-      <div class="glass info-card reveal" data-step="3"><div class="card-top"><span>03 / REASONING</span><span>⇄</span></div><div><h3>Logos</h3><div class="versus">Soccer / Violin <b>vs.</b> Coding</div></div></div>
+      <div class="glass info-card reveal" data-step="3"><div class="card-top"><span>03 / REASONING</span><span>⇄</span></div><div><h3>Logos</h3><div class="comparison-pills" aria-label="Soccer leads to a team, violin to lessons, but where can a child learn coding?"><span>Soccer <i>→</i> Team</span><span>Violin <i>→</i> Lessons</span><span>Coding <i>→</i> <strong>???</strong></span></div></div></div>
     </div>
   </div>
 </section>
@@ -400,7 +432,7 @@ button{font:inherit}
       <h2>Behind every <span class="grad">creator.</span></h2>
     </div>
     <div class="pathos">
-      <div class="stat reveal" data-step="1"><div class="stat-label">Parents’ support</div><div class="stat-number">$99</div><div class="stat-caption">App Store developer fee</div></div>
+      <div class="stat reveal" data-step="1"><div class="stat-label">Parents’ support</div><div class="stat-number" aria-label="$99">$99</div><div class="stat-caption">App Store developer fee</div></div>
       <div class="glass audience-card reveal" data-step="2">
         <div class="eyebrow">The audience</div>
         <div class="audiences">
@@ -433,7 +465,8 @@ button{font:inherit}
 
 </div>
 
-<div class="pager" aria-hidden="true"><b id="number">01</b><span>/ 06</span></div>
+<button id="presenterTimer" class="presenter-timer" type="button" hidden aria-label="Presenter timer, click to reset" title="Click to reset · T to hide"><span class="timer-dot" aria-hidden="true"></span><span id="timerDisplay">00:00</span></button>
+<div class="pager" aria-hidden="true"><b id="number">00</b><span>/ 06</span></div>
 <p class="sr-live" aria-live="polite" id="live"></p>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="TED talk clip player" hidden>
@@ -441,10 +474,10 @@ button{font:inherit}
   <div class="modal-card">
     <div class="modal-head"><span>Thomas Suarez — “A 12-year-old app developer”</span><button class="modal-x" data-close aria-label="Close clip">✕</button></div>
     <div class="modal-frame">
-      <div class="frame-fallback">If the clip doesn’t load here, open this file in your browser<br>or watch directly on <a href="https://www.ted.com/talks/thomas_suarez_a_12_year_old_app_developer" target="_blank" rel="noopener noreferrer">TED.com ↗</a></div>
-      <iframe id="clipFrame" title="Thomas Suarez TED talk clip" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video id="clipVideo" src="clip.mp4" controls playsinline preload="metadata" aria-label="Thomas Suarez highlight reel"></video>
+      <div id="videoError" class="video-error" role="status">Video unavailable. Keep clip.mp4 in the same folder as index.html, then open index.html in your browser.</div>
     </div>
-    <div class="modal-foot"><span>Snippet 0:00 – 0:15 · his opening lines — pause anytime</span><a href="https://www.ted.com/talks/thomas_suarez_a_12_year_old_app_developer" target="_blank" rel="noopener noreferrer">Full talk on TED ↗</a></div>
+    <div class="modal-foot"><span>Edited highlight · 1:36 · pause anytime</span><a href="https://www.ted.com/talks/thomas_suarez_a_12_year_old_app_developer" target="_blank" rel="noopener noreferrer">Full talk on TED ↗</a></div>
   </div>
 </div>
 </main>
@@ -453,9 +486,18 @@ button{font:inherit}
 (()=>{
 const slides=[...document.querySelectorAll('.slide')];
 const number=document.getElementById('number'),live=document.getElementById('live');
-const modal=document.getElementById('modal'),frame=document.getElementById('clipFrame'),btn=document.getElementById('clipBtn'),closeX=modal.querySelector('.modal-x');
-const CLIP='https://www.youtube-nocookie.com/embed/Fkd9TWUtFm0?start=0&end=15&autoplay=1&rel=0&modestbranding=1&playsinline=1';
+const modal=document.getElementById('modal'),video=document.getElementById('clipVideo'),btn=document.getElementById('clipBtn'),standbyBtn=document.getElementById('standbyClipBtn'),closeX=modal.querySelector('.modal-x'),videoError=document.getElementById('videoError');
+let lastTrigger=btn, closeTimer=null;
 let index=0,step=0;
+const deckProgress=document.getElementById('deckProgress'),timer=document.getElementById('presenterTimer'),timerDisplay=document.getElementById('timerDisplay'),stat=document.querySelector('.stat-number');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let timerElapsed=0,timerStarted=0,timerTicker=null,statVisible=false,statFrame=null;
+function updateTimer(){const ms=timerElapsed+(timer.hidden?0:performance.now()-timerStarted);const seconds=Math.floor(ms/1000);timerDisplay.textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+function toggleTimer(){if(timer.hidden){timer.hidden=false;timerStarted=performance.now();updateTimer();timerTicker=setInterval(updateTimer,250)}else{timerElapsed+=performance.now()-timerStarted;timer.hidden=true;clearInterval(timerTicker);timerTicker=null}}
+timer.addEventListener('click',()=>{timerElapsed=0;timerStarted=performance.now();updateTimer()});
+function animateStat(){cancelAnimationFrame(statFrame);if(reduceMotion.matches){stat.textContent='$99';return}stat.textContent='$0';const started=performance.now(),duration=1000;function tick(now){const t=Math.min(1,(now-started)/duration),eased=1-Math.pow(1-t,3);stat.textContent='$'+Math.round(99*eased);if(t<1)statFrame=requestAnimationFrame(tick)}statFrame=requestAnimationFrame(tick)}
+const magnet=standbyBtn;magnet.addEventListener('pointermove',e=>{if(reduceMotion.matches||e.pointerType==='touch')return;const r=magnet.getBoundingClientRect();magnet.style.setProperty('--mag-x',((e.clientX-r.left-r.width/2)/r.width*8).toFixed(1)+'px');magnet.style.setProperty('--mag-y',((e.clientY-r.top-r.height/2)/r.height*6).toFixed(1)+'px')});magnet.addEventListener('pointerleave',()=>{magnet.style.setProperty('--mag-x','0px');magnet.style.setProperty('--mag-y','0px')});
+document.querySelectorAll('.glass').forEach(card=>card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--glow-x',(e.clientX-r.left)+'px');card.style.setProperty('--glow-y',(e.clientY-r.top)+'px')}));
 const max=i=>Math.max(0,...[...slides[i].querySelectorAll('[data-step]')].map(x=>Number(x.dataset.step)));
 function render(){
   slides.forEach((s,i)=>{
@@ -464,19 +506,25 @@ function render(){
     s.setAttribute('aria-hidden',i===index?'false':'true');
     s.querySelectorAll('[data-step]').forEach(el=>el.classList.toggle('shown',i===index&&Number(el.dataset.step)<=step));
   });
-  number.textContent=String(index+1).padStart(2,'0');
-  live.textContent='Slide '+(index+1)+' of '+slides.length;
+  deckProgress.style.width=(index/6*100)+'%';
+  const showingStat=index===5&&step>=1;if(showingStat&&!statVisible)animateStat();if(!showingStat&&statVisible){cancelAnimationFrame(statFrame);stat.textContent='$0'}statVisible=showingStat;
+  number.textContent=String(index).padStart(2,'0');
+  live.textContent=index===0?'Pre-presentation screen':'Slide '+index+' of 6';
 }
 function forward(){if(step<max(index))step++;else if(index<slides.length-1){index++;step=0;slides[index].scrollTop=0}render()}
 function back(){if(step>0)step--;else if(index>0){index--;step=max(index);slides[index].scrollTop=0}render()}
-function openClip(){if(!modal.hidden)return;modal.hidden=false;requestAnimationFrame(()=>modal.classList.add('open'));frame.src=CLIP;btn.setAttribute('aria-expanded','true');closeX.focus()}
-function closeClip(){if(modal.hidden)return;modal.classList.remove('open');frame.src='about:blank';btn.setAttribute('aria-expanded','false');btn.focus();setTimeout(()=>{modal.hidden=true},240)}
+function openClip(e){if(!modal.hidden&&modal.classList.contains('open'))return;clearTimeout(closeTimer);lastTrigger=e.currentTarget;modal.hidden=false;videoError.classList.remove('visible');requestAnimationFrame(()=>modal.classList.add('open'));btn.setAttribute('aria-expanded','true');standbyBtn.setAttribute('aria-expanded','true');try{video.currentTime=0}catch(_){}const play=video.play();if(play&&play.catch)play.catch(()=>{});closeX.focus()}
+function closeClip(){if(modal.hidden)return;video.pause();try{video.currentTime=0}catch(_){}modal.classList.remove('open');btn.setAttribute('aria-expanded','false');standbyBtn.setAttribute('aria-expanded','false');if(index===0)slides[0].focus();else lastTrigger.focus();closeTimer=setTimeout(()=>{modal.hidden=true},350)}
+video.addEventListener('error',()=>videoError.classList.add('visible'));
 btn.addEventListener('click',openClip);
+standbyBtn.addEventListener('click',openClip);
 modal.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeClip()});
 document.addEventListener('keydown',e=>{
   if(e.altKey||e.ctrlKey||e.metaKey)return;
   if(e.key==='Escape'){if(!modal.hidden)closeClip();return}
   if(!modal.hidden)return;
+  if(e.key.toLowerCase()==='t'&&!e.repeat&&!e.target.closest('input,textarea,select,[contenteditable]')){e.preventDefault();toggleTimer();return}
+  if(e.key===' ' && e.target.closest('button,a,input,textarea,select'))return;
   if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();forward()}
   else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();back()}
   else if(e.key==='Home'){e.preventDefault();index=0;step=0;render()}
@@ -490,5 +538,5 @@ document.addEventListener('click',e=>{
 render();
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5c9b2a81e76acba',t:'MTc5NTAzMzQ1Nw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5c9b2a81e76acba',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5d3700bd96cacbd',t:'MTc5NTEzNTU4Nw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5d3700bd96cacbd',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
